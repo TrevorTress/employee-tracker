@@ -1,10 +1,27 @@
 const inquirer = require('inquirer')
+const db = require('./db/connection');
 
 // WHEN I choose to view all departments
 // THEN I am presented with a formatted table showing department names and department ids
 function viewAllDepts() {
-    console.table()
-}
+    const sql = 
+        `SELECT * departments, 
+        AS party_name 
+        FROM candidates 
+        LEFT JOIN parties 
+        ON candidates.party_id = parties.id`;
+      
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json({
+            message: 'success',
+            data: rows
+        });
+    });
+};
 
 // WHEN I choose to view all roles
 // THEN I am presented with the job title, role id, the department that role belongs to, and the salary for that role
@@ -25,6 +42,9 @@ function addDept() {
         type: 'input',
         name: 'department',
         message: 'What is the name of the new department?',
+    })
+    .then(( {deptData} ) => {
+        
     })
 }
 
@@ -47,6 +67,9 @@ function addRole() {
         message: 'What department is the new role a part of?',
     }
     )
+    .then(( {roleData} ) => {
+        
+    })
 }
 
 // WHEN I choose to add an employee
@@ -72,6 +95,9 @@ function addEmployee() {
         name: 'manager',
         message: 'Who manages the new employee?',
     })
+    .then(( {employeeData} ) => {
+
+    })
 }
 
 
@@ -79,6 +105,9 @@ function addEmployee() {
 // THEN I am prompted to select an employee to update and their new role and this information is updated in the database
 function updateRole() {
     inquirer.prompt()
+    .then(( {updatedRole} ) => {
+        
+    })
 }
 
 function init() {
