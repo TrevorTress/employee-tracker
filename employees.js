@@ -4,14 +4,14 @@ const db = require('./db/connection');
 // THEN I am presented with a formatted table showing department names and department ids
 function viewAllDepts() {
     console.log('function executed')
-    //const sql = `SELECT * FROM departments`    
-    // db.query(sql, (err, rows) => {
-    //     if (err) {
-    //         res.status(500).json({ error: err.message });
-    //         return;
-    //     }
-    //     console.table(rows)
-    // });
+    const sql = `SELECT * FROM departments`    
+    db.query(sql, (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        console.table(rows)
+    });
 };
 
 // WHEN I choose to view all roles
