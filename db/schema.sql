@@ -11,11 +11,11 @@ CREATE TABLE departments (
 CREATE TABLE roles (
     id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30) NOT NULL, -- holds role title
-    salary DECIMAL NOT NULL, -- holds role salary
-    CONSTRAINT fk_dept
-        FOREIGN KEY (dept_id)
-        REFERENCES departments(id)
-        ON DELETE SET NULL
+    salary DECIMAL NOT NULL -- holds role salary
+    -- CONSTRAINT fk_dept
+    --     FOREIGN KEY (dept_id)
+    --     REFERENCES departments(id)
+    --     ON DELETE SET NULL
     
     -- department_id INTEGER -- NEEDS A FOREIGN KEY       holds reference to department role belongs to
 );

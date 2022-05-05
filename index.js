@@ -42,6 +42,8 @@ function init() {
     })
 }
 
+module.exports = init
+
 // console.table
 // ([
 //     {
